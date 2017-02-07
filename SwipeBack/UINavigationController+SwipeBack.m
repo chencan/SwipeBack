@@ -105,6 +105,15 @@ void __swipeback_swizzle(Class cls, SEL originalSelector) {
 }
 
 
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    if (gestureRecognizer == self.interactivePopGestureRecognizer) {
+        return YES;
+    }
+    return NO;
+}
+
+
+
 #pragma mark - swipeBackEnabled
 
 - (BOOL)swipeBackEnabled
